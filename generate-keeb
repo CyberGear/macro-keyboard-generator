@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cp ./$1/config.scad ./src/config.scad
+
+echo "# Generating $1-top.stl"
+openscad -o ./$1/$1-top.stl ./src/keeb-generator-script-top.scad
+echo "# Done $1-top.stl"
+echo ""
+
+echo "# Generating $1-plate.stl"
+openscad -o ./$1/$1-plate.stl ./src/keeb-generator-script-plate.scad
+echo "# Done $1-plate.stl"
+echo ""
+
+echo "# Generating $1-bottom.stl"
+openscad -o ./$1/$1-bottom.stl ./src/keeb-generator-script-bottom.scad
+echo "# Done $1-bottom.stl"
+echo ""
+
+rm ./src/config.scad
+echo "Done"
